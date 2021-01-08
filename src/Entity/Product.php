@@ -44,27 +44,32 @@ class Product
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"product:read", "product:write"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"product:read", "product:write"})
      */
     private $updatedAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"product:read", "product:write"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"product:read", "product:write"})
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:read", "product:write"})
      */
     private $user;
 
