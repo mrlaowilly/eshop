@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
+
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"product:read"}},
@@ -32,44 +33,38 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"product:read", "product:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=80)
-     * @Groups({"product:read","product:write"})
+     * @Groups({"product:read", "product:write"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"product:read","product:write"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"product:read","product:write"})
      */
     private $updatedAt;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"product:read","product:write"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"product:read","product:write"})
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"product:read","product:write"})
      */
     private $user;
 
