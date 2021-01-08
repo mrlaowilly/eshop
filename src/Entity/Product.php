@@ -32,7 +32,7 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"product:read","product:write"})
+     * @Groups({"product:read", "product:read"})
      */
     private $id;
 
@@ -44,32 +44,38 @@ class Product
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"product:read","product:write"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"product:read","product:write"})
      */
     private $updatedAt;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"product:read","product:write"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"product:read","product:write"})
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:read","product:write"})
      */
     private $user;
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="products")
+     * @Groups({"product:read","product:write"})
      */
     private $categories;
 
